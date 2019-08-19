@@ -52,28 +52,28 @@ class TestPrioritySwitch(unittest.TestCase):
     #
     # TEST PROCESS
     #
-    # def test_process(self):
-    #     """Test process / reading telegrams from telegram queue. Test if device was updated."""
-    #     xknx = XKNX(loop=self.loop)
-    #     priority_switch = PrioritySwitch(xknx, 'TestOutlet', group_address='1/2/3')
+    def test_process(self):
+        """Test process / reading telegrams from telegram queue. Test if device was updated."""
+        xknx = XKNX(loop=self.loop)
+        priority_switch = PrioritySwitch(xknx, 'TestOutlet', group_address='1/2/3')
 
-    #     # self.assertEqual(priority_switch.state, None)
+        # self.assertEqual(priority_switch.state, None)
 
-    #     telegram_on = Telegram()
-    #     telegram_on.group_address = GroupAddress('1/2/3')
-    #     telegram_on.payload = DPTBinary(1)
-    #     self.loop.run_until_complete(asyncio.Task(priority_switch.process(telegram_on)))
-    #     #  Priority off, Switch on
-    #     self.assertEqual(priority_switch.resolve_state, True)
-    #     self.assertEqual(priority_switch.resolve_priority, False)
+        telegram_on = Telegram()
+        telegram_on.group_address = GroupAddress('1/2/3')
+        telegram_on.payload = DPTBinary(1)
+        self.loop.run_until_complete(asyncio.Task(priority_switch.process(telegram_on)))
+        #  Priority off, Switch on
+        self.assertEqual(priority_switch.resolve_state(), True)
+        self.assertEqual(priority_switch.resolve_priority(), False)
 
-    #     telegram_off = Telegram()
-    #     telegram_off.group_address = GroupAddress('1/2/3')
-    #     telegram_off.payload = DPTBinary(0)
-    #     self.loop.run_until_complete(asyncio.Task(priority_switch.process(telegram_off)))
-    #     #  Priority off, Switch off
-    #     self.assertEqual(priority_switch.resolve_state, False)
-    #     self.assertEqual(priority_switch.resolve_state, False)
+        telegram_off = Telegram()
+        telegram_off.group_address = GroupAddress('1/2/3')
+        telegram_off.payload = DPTBinary(0)
+        self.loop.run_until_complete(asyncio.Task(priority_switch.process(telegram_off)))
+        #  Priority off, Switch off
+        self.assertEqual(priority_switch.resolve_state(), False)
+        self.assertEqual(priority_switch.resolve_priority(), False)
 
     def test_process_callback(self):
         """Test process / reading telegrams from telegram queue. Test if callback was called."""

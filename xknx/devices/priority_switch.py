@@ -93,7 +93,8 @@ class PrioritySwitch(Device):
             2: False,  # Priority on, Switch off
             3: True  # Priority on, Switch on
         }
-        return bool(values.get(self.priority_switch.value, 'Value not possible'))
+
+        return values.get(self.priority_switch.value, 'Value not possible')
 
     def resolve_priority(self):
         """Return the current state of the sensor."""
@@ -103,7 +104,7 @@ class PrioritySwitch(Device):
             2: True,  # Priority on, Switch off
             3: True  # Priority on, Switch on
         }
-        return bool(values.get(self.priority_switch.value, 'Value not possible'))
+        return values.get(self.priority_switch.value, 'Value not possible')
 
     def __str__(self):
         """Return object as readable string."""
