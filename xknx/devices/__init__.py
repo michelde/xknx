@@ -12,12 +12,14 @@ from .expose_sensor import ExposeSensor
 from .fan import Fan
 from .light import Light
 from .notification import Notification
+from .priority_switch import PrioritySwitch
 from .remote_value import RemoteValue
 from .remote_value_1count import RemoteValue1Count
 from .remote_value_color_rgb import RemoteValueColorRGB
 from .remote_value_color_rgbw import RemoteValueColorRGBW
 from .remote_value_dpt_2_byte_unsigned import RemoteValueDpt2ByteUnsigned
 from .remote_value_dpt_value_1_ucount import RemoteValueDptValue1Ucount
+from .remote_value_priority_switch import RemoteValuePrioritySwitch
 from .remote_value_scaling import RemoteValueScaling
 from .remote_value_scene_number import RemoteValueSceneNumber
 from .remote_value_sensor import RemoteValueSensor
